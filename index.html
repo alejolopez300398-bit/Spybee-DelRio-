@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dashboard ejecutivo de valor, adopción y expansión para Constructora del Río S.A.S."
+    />
+    <title>Constructora del Río | Dashboard ejecutivo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <aside class="sidebar" aria-label="Navegación del dashboard">
+        <a class="brand" href="#resumen" aria-label="Spybee - Inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span class="brand-name">spybee</span>
+        </a>
+
+        <nav class="sidebar-nav">
+          <a class="nav-item active" href="#resumen" aria-label="Resumen">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 13h6V4H4v9Zm0 7h6v-4H4v4Zm10 0h6v-9h-6v9Zm0-16v4h6V4h-6Z" />
+            </svg>
+            <span>Resumen</span>
+          </a>
+          <a class="nav-item" href="#valor" aria-label="Valor construido">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 20V10h3v10H5Zm5.5 0V4h3v16h-3Zm5.5 0v-7h3v7h-3Z" />
+            </svg>
+            <span>Valor</span>
+          </a>
+          <a class="nav-item" href="#adopcion" aria-label="Adopción">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm-7 8a7 7 0 0 1 14 0H5Zm14.5-8.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM19 14c2.8 0 5 2.2 5 5h-3a8.8 8.8 0 0 0-2.4-5H19Z" />
+            </svg>
+            <span>Adopción</span>
+          </a>
+          <a class="nav-item" href="#oportunidad" aria-label="Oportunidad">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m12 2 2.7 6.3L21 11l-6.3 2.7L12 20l-2.7-6.3L3 11l6.3-2.7L12 2Z" />
+            </svg>
+            <span>Oportunidad</span>
+          </a>
+          <a class="nav-item" href="#plan" aria-label="Plan recomendado">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9.5 17.5 4 12l2-2 3.5 3.5L18 5l2 2-10.5 10.5Z" />
+            </svg>
+            <span>Plan</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <span class="status-dot"></span>
+          <span>Cuenta activa</span>
+        </div>
+      </aside>
+
+      <main class="dashboard">
+        <header class="topbar">
+          <div class="topbar-context">
+            <span class="eyebrow">Account intelligence</span>
+            <span class="context-divider"></span>
+            <span class="updated-label">Datos simulados · corte ejecutivo</span>
+          </div>
+          <div class="account-badge" title="Constructora del Río S.A.S.">
+            <span>CR</span>
+          </div>
+        </header>
+
+        <section class="hero" id="resumen">
+          <div class="hero-copy">
+            <div class="hero-kicker">
+              <span class="live-pill"><span></span> Cuenta estratégica</span>
+              <span>2.5 años de relación</span>
+            </div>
+            <h1>Constructora del Río S.A.S</h1>
+            <p class="hero-subtitle">Valor, adopción y oportunidad de expansión</p>
+            <div class="account-meta" aria-label="Resumen de cuenta">
+              <span>Cliente desde 2023</span>
+              <span>18 proyectos</span>
+              <span>125 usuarios provisionados</span>
+            </div>
+          </div>
+
+          <div class="hero-signal" aria-label="Mensaje ejecutivo principal">
+            <div class="signal-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13 2 4.5 13H11l-1 9 8.5-11H12l1-9Z" />
+              </svg>
+            </div>
+            <div>
+              <span class="signal-label">Lectura ejecutiva</span>
+              <p>
+                La cuenta no tiene un problema de captura de información; tiene una oportunidad
+                de expansión en <strong>uso transversal y toma de decisiones.</strong>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="kpi-grid" id="kpiGrid" aria-label="Indicadores principales"></section>
+
+        <section class="story-row story-row-primary">
+          <article class="panel value-panel" id="valor">
+            <div class="panel-heading">
+              <div>
+                <span class="section-index">01 · Valor entregado</span>
+                <h2>Valor construido</h2>
+                <p>Nuevos activos por mes y crecimiento acumulado en la plataforma.</p>
+              </div>
+              <div class="value-actions">
+                <span class="panel-badge teal" id="valueTotal">7.494 activos</span>
+                <div class="chart-range" aria-label="Vista del gráfico">
+                  <button type="button" data-value-range="summary" aria-pressed="false">
+                    Resumen
+                  </button>
+                  <button type="button" data-value-range="6" aria-pressed="false">6M</button>
+                  <button type="button" class="active" data-value-range="12" aria-pressed="true">
+                    12M
+                  </button>
+                  <button type="button" data-value-range="all" aria-pressed="false">Todo</button>
+                </div>
+              </div>
+            </div>
+            <div class="chart-wrap chart-wrap-value">
+              <canvas id="valueChart" aria-label="Gráfico de valor construido"></canvas>
+            </div>
+            <div class="insight insight-teal">
+              <span class="insight-marker"></span>
+              <div class="insight-copy">
+                <p>
+                  Constructora del Río ya consolidó una
+                  <strong>base documental difícil de reemplazar.</strong> El siguiente paso es convertir ese activo en <strong> toma de decisiones.</strong> 
+                </p>
+                <p>
+                  La carga mensual evidencia continuidad en la construcción del activo digital.
+                  <strong>La línea permite identificar ritmo, picos y acumulación.</strong>
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel adoption-panel" id="adopcion">
+            <div class="panel-heading compact">
+              <div>
+                <span class="section-index warning-text">02 · Riesgo actual</span>
+                <h2>Adopción de usuarios</h2>
+                <p>Top 10 de roles por suma de eventos.</p>
+              </div>
+              <div class="adoption-stats" aria-label="Resumen de adopción">
+                <span class="adoption-stat total"><strong>125</strong> usuarios</span>
+                <span class="adoption-stat warning"><strong>68%</strong> sin login</span>
+                <span class="adoption-stat active"><strong>32%</strong> con login</span>
+              </div>
+            </div>
+            <div
+              class="role-usage-chart"
+              id="roleUsageChart"
+              aria-label="Top 10 de roles con más eventos"
+            ></div>
+            <div class="role-usage-summary">
+              <span><strong>2.369 de 2.613</strong> eventos están en el top 10</span>
+              <span><strong>91%</strong> del uso total</span>
+            </div>
+            <div class="insight insight-warning">
+              <span class="insight-marker"></span>
+              <div class="insight-copy">
+                <p>
+                  El <strong>91% del uso está concentrado en los 10 roles más activos.</strong>
+                  Estos roles son el patrón para <strong>activar el 68%</strong> restante.
+                </p>
+                <p>
+                  La adopción está liderada por perfiles de calidad y documentación; el siguiente
+                  paso es llevar ese comportamiento a operaciones, obra y dirección de proyectos
+                  para que Spybee pase de
+                  <strong>registrar información a gestionar decisiones.</strong>
+                </p>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="panel concentration-panel" id="oportunidad">
+          <div class="panel-heading concentration-heading">
+            <div>
+              <span class="section-index">03 · Patrón de uso</span>
+              <h2>Consulta, registro y aprovechamiento por proyecto</h2>
+              <p>Separa lo que los usuarios consultan de lo que los equipos registran.</p>
+            </div>
+            <div class="concentration-stat">
+              <strong id="projectConcentrationValue">68,6%</strong>
+              <span id="projectConcentrationCopy">de 2.653 vistas<br />están en 3 proyectos</span>
+            </div>
+          </div>
+          <div class="project-metric-filter" aria-label="Dimensión y métrica de proyectos">
+            <div class="metric-group consultation">
+              <span class="metric-group-label">Consulta</span>
+              <button type="button" class="active" data-project-metric="views" aria-pressed="true">
+                Vistas
+              </button>
+            </div>
+            <div class="metric-group registration">
+              <span class="metric-group-label">Registro</span>
+              <button type="button" data-project-metric="visits" aria-pressed="false">
+                Visitas
+              </button>
+              <button type="button" data-project-metric="registered" aria-pressed="false">
+                Total registrado
+              </button>
+              <button type="button" data-project-metric="photos" aria-pressed="false">
+                Fotografías
+              </button>
+              <button type="button" data-project-metric="tours" aria-pressed="false">
+                Recorridos 360
+              </button>
+              <button type="button" data-project-metric="photogrammetries" aria-pressed="false">
+                Fotogrametrías
+              </button>
+              <button type="button" data-project-metric="documents" aria-pressed="false">
+                Documentos
+              </button>
+              <button type="button" data-project-metric="incidents" aria-pressed="false">
+                Incidencias
+              </button>
+            </div>
+            <div class="metric-group relationship">
+              <span class="metric-group-label">Relación</span>
+              <button type="button" data-project-metric="utilization" aria-pressed="false">
+                Vistas / contenido
+              </button>
+            </div>
+          </div>
+          <div class="chart-wrap chart-wrap-projects">
+            <canvas id="projectsChart" aria-label="Comparativo de métricas por proyecto"></canvas>
+          </div>
+          <div class="insight insight-blue">
+            <span class="insight-marker"></span>
+            <p id="projectInsight"></p>
+          </div>
+        </section>
+
+        <section class="underused-section">
+          <div class="section-title-row">
+            <div>
+              <span class="section-index warning-text">04 · Aprovechamiento del contenido</span>
+              <h2>Relación entre contenido creado y vistas</h2>
+              <p>Relación directa entre vistas obtenidas y activos registrados en cada proyecto.</p>
+            </div>
+            <span class="opportunity-label">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 1 21h22L12 3Zm1 13h-2v-5h2v5Zm0 3h-2v-2h2v2Z" />
+              </svg>
+              1 referente integral · 2 eficientes · 3 prioritarios
+            </span>
+          </div>
+
+          <article class="scale-reference" id="scaleReferenceProject"></article>
+
+          <div class="efficiency-grid">
+            <section class="efficiency-group positive">
+              <div class="efficiency-group-heading">
+                <span>Eficiencia relativa</span>
+                <h3>Top 2 por proporción</h3>
+                <p>Proyectos que generan más vistas frente al volumen registrado.</p>
+              </div>
+              <div class="efficiency-list" id="bestEfficiencyProjects"></div>
+            </section>
+
+            <section class="efficiency-group warning">
+              <div class="efficiency-group-heading">
+                <span>Menor relación</span>
+                <h3>Top 3 para poner bajo observación</h3>
+                <p>Proyectos con contenido disponible que necesita mayor aprovechamiento.</p>
+              </div>
+              <div class="efficiency-list" id="priorityEfficiencyProjects"></div>
+            </section>
+          </div>
+          <div class="insight insight-warning table-insight">
+            <span class="insight-marker"></span>
+            <p>
+              Quora es el referente para replicar escala y adopción. Los proyectos eficientes
+              muestran buenas proporciones sobre bases menores. En los tres prioritarios, el
+              siguiente paso es llevar el contenido a
+              <strong>reportes, alertas y decisiones recurrentes.</strong>
+            </p>
+          </div>
+        </section>
+
+        <section class="plan-section" id="plan">
+          <div class="plan-intro">
+            <span class="section-index">05 · Próximo movimiento</span>
+            <h2>Plan de expansión</h2>
+            <p>
+              Tres frentes para convertir Spybee de una herramienta de documentación en una
+              plataforma transversal de gestión y decisión.
+            </p>
+          </div>
+          <div class="plan-grid" id="planGrid"></div>
+          <div class="closing-statement">
+            <span class="closing-rule"></span>
+            <p>
+              “Renovar no es solo mantener Spybee. Es convertir el activo digital existente en
+              <strong>inteligencia operativa para toda la constructora.</strong>”
+            </p>
+            <span class="closing-rule"></span>
+          </div>
+        </section>
+
+        <footer>
+          <span>Spybee · Customer Success Intelligence</span>
+          <span>Constructora del Río S.A.S · 2026</span>
+        </footer>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
