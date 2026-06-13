@@ -1,7 +1,6 @@
 "use strict";
 
-// Fuente única de datos mock. En la fase CSV, este objeto será reemplazado
-// por el resultado normalizado de los archivos de origen.
+// Datos consolidados desde bbdd_unif.xlsx para alimentar todas las vistas del dashboard.
 const dashboardData = {
   account: {
     name: "Constructora del Río S.A.S",
@@ -209,6 +208,7 @@ function formatNumber(value) {
   return numberFormatter.format(value);
 }
 
+// Construye las tarjetas del resumen ejecutivo a partir de la configuración de KPIs.
 function renderKpis() {
   const container = document.querySelector("#kpiGrid");
   container.innerHTML = dashboardData.kpis
@@ -229,6 +229,7 @@ function renderKpis() {
     .join("");
 }
 
+// Compara vistas contra contenido registrado para detectar referentes y proyectos subutilizados.
 function renderProjectEfficiency() {
   const readings = {
     "Planta de Prefabricados (PREFA)":
@@ -314,6 +315,7 @@ function renderProjectEfficiency() {
   `;
 }
 
+// Presenta las acciones recomendadas para dirección, operación, gerencia y finanzas.
 function renderPlan() {
   const container = document.querySelector("#planGrid");
   container.innerHTML = dashboardData.plan
@@ -334,6 +336,7 @@ function renderPlan() {
     .join("");
 }
 
+// Mantiene una configuración visual consistente en todos los gráficos de Chart.js.
 function getChartDefaults() {
   Chart.defaults.font.family = 'Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
   Chart.defaults.color = "#667789";
@@ -346,6 +349,7 @@ function getChartDefaults() {
   Chart.defaults.plugins.tooltip.cornerRadius = 8;
 }
 
+// Muestra la evolución del activo digital y permite alternar entre periodos y vista acumulada.
 function renderValueChart() {
   const source = dashboardData.contentTimeline.map(
     ([month, visits, photos, tours, layers, photogrammetries, documents, incidents]) => ({
@@ -579,6 +583,7 @@ function renderValueChart() {
   });
 }
 
+// Representa la concentración de actividad en los diez roles con mayor número de eventos.
 function renderAdoptionChart() {
   const container = document.querySelector("#roleUsageChart");
   const roles = dashboardData.roleUsage;
@@ -609,6 +614,7 @@ function renderAdoptionChart() {
     .join("");
 }
 
+// Permite comparar consulta, registro y aprovechamiento para los 18 proyectos.
 function renderProjectsChart() {
   const metrics = {
     views: { label: "Vistas", singular: "vista", color: "#2873e8", dimension: "consultation" },
@@ -795,6 +801,7 @@ function renderProjectsChart() {
   });
 }
 
+// Coordina la carga de visualizaciones y controla el caso en que Chart.js no esté disponible.
 function renderCharts() {
   renderAdoptionChart();
 
@@ -811,6 +818,7 @@ function renderCharts() {
   renderProjectsChart();
 }
 
+// Actualiza la navegación lateral según la sección visible en pantalla.
 function setupNavigation() {
   const links = [...document.querySelectorAll(".nav-item")];
   const sections = links
@@ -831,6 +839,7 @@ function setupNavigation() {
   sections.forEach((section) => observer.observe(section));
 }
 
+// Punto de entrada: renderiza los componentes cuando el documento está listo.
 function initializeDashboard() {
   renderKpis();
   renderProjectEfficiency();

@@ -137,10 +137,12 @@ Columnas:
 
 - `index.html`: estructura y contenido semántico del dashboard.
 - `styles.css`: sistema visual, diseño responsive y estilos.
-- `app.js`: consolidación de los datos reales, renderizado y configuración de gráficos.
-- `bbdd_unif.xlsx`: fuente original de datos.
-- `Plan de cuenta.docx`: documento de apoyo para la estrategia de cuenta.
+- `app.js`: datos consolidados, lógica de análisis, renderizado y configuración de gráficos.
+- `bbdd_unif.xlsx`: fuente de datos consolidada utilizada para construir los indicadores.
 - `README.md`: instrucciones y documentación del proyecto.
+
+El dashboard no requiere `node_modules`, proceso de compilación ni instalación de paquetes.
+Chart.js se consume directamente desde CDN.
 
 ## Secciones del dashboard
 
